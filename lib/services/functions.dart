@@ -15,6 +15,8 @@ Future<String> callFunction(String funcname, List<dynamic> args,
   EthPrivateKey credentials = EthPrivateKey.fromHex(privateKey);
   DeployedContract contract = await loadContract();
   final ethFunction = contract.function(funcname);
+  
+  //creds
   final result = await ethClient.sendTransaction(
       credentials,
       Transaction.callContract(
